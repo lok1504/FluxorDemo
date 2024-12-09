@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxorDemo.Api", "FluxorDemo.Api\FluxorDemo.Api.csproj", "{A466390F-AB1B-4A45-93AD-E40D8AC2C040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxorDemo.Shared", "FluxorDemo.Shared\FluxorDemo.Shared.csproj", "{F39267B9-24F9-471B-B2B8-01249609C824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxorDemo.Client", "FluxorDemo.Client\FluxorDemo.Client.csproj", "{AEDD6A2C-808C-4DD7-A49D-61B171BCF570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A466390F-AB1B-4A45-93AD-E40D8AC2C040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A466390F-AB1B-4A45-93AD-E40D8AC2C040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A466390F-AB1B-4A45-93AD-E40D8AC2C040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A466390F-AB1B-4A45-93AD-E40D8AC2C040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39267B9-24F9-471B-B2B8-01249609C824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39267B9-24F9-471B-B2B8-01249609C824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39267B9-24F9-471B-B2B8-01249609C824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39267B9-24F9-471B-B2B8-01249609C824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEDD6A2C-808C-4DD7-A49D-61B171BCF570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEDD6A2C-808C-4DD7-A49D-61B171BCF570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEDD6A2C-808C-4DD7-A49D-61B171BCF570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEDD6A2C-808C-4DD7-A49D-61B171BCF570}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

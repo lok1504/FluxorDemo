@@ -1,0 +1,6 @@
+@FluxorDemo.Api_HostAddress = http://localhost:5241
+
+GET {{FluxorDemo.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
