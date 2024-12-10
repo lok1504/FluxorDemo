@@ -1,12 +1,14 @@
 ﻿@page "/weather"
 
+@inherits FluxorComponent
+
 <PageTitle>Weather</PageTitle>
 
 <h1>Weather</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (Loading)
 {
     <p><em>Loading...</em></p>
 }
@@ -22,7 +24,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var forecast in Forecasts)
             {
                 <tr>
                     <td>@forecast.Date.ToShortDateString()</td>
@@ -33,4 +35,6 @@ else
             }
         </tbody>
     </table>
+    <br />
+    <button class="btn btn-outline-info" @onclick="LoadForecasts">Refresh</button>
 }

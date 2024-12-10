@@ -1,18 +1,34 @@
-﻿using FluxorDemo.Shared;
+﻿using Fluxor;
+using Fluxor.Blazor.Web.Components;
+using FluxorDemo.Client.Features.Weather;
+using FluxorDemo.Shared;
 using Microsoft.AspNetCore.Components;
-using System.Net.Http.Json;
 
 namespace FluxorDemo.Client.Pages;
 
-public partial class Weather
+public partial class Weather : FluxorComponent
 {
     [Inject]
-    protected HttpClient Http { get; set; }
+    protected IDispatcher Dispatcher { get; set; }
 
-    private WeatherForecast[]? forecasts;
+    [Inject]
+    protected IState<WeatherState> WeatherState { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    private WeatherForecast[] Forecasts => WeatherState.Value.Forecasts;
+    private bool Loading => WeatherState.Value.Loading;
+
+    protected override void OnInitialized()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        if (WeatherState.Value.Initialized == false)
+        {
+            LoadForecasts();
+            Dispatcher.Dispatch(new SetWeatherInitializedAction());
+        }
+        base.OnInitialized();
+    }
+
+    private void LoadForecasts()
+    {
+        Dispatcher.Dispatch(new LoadWeatherForecastsAction());
     }
 }
