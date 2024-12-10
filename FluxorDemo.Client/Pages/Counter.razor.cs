@@ -1,11 +1,30 @@
-﻿namespace FluxorDemo.Client.Pages;
+﻿using Fluxor;
+using Fluxor.Blazor.Web.Components;
+using FluxorDemo.Client.Features.Counter;
+using Microsoft.AspNetCore.Components;
 
-public partial class Counter
+namespace FluxorDemo.Client.Pages;
+
+public partial class Counter : FluxorComponent
 {
-    private int currentCount = 0;
+    [Inject]
+    protected IDispatcher Dispatcher { get; set; }
+
+    [Inject]
+    protected IState<CounterState> CounterState { get; set; }
 
     private void IncrementCount()
     {
-        currentCount++;
+        Dispatcher.Dispatch(new CounterIncrementAction());
+    }
+
+    private void DecrementCount()
+    {
+        Dispatcher.Dispatch(new CounterDecrementAction());
+    }
+
+    private void ResetCount()
+    {
+        Dispatcher.Dispatch(new CounterResetAction());
     }
 }
