@@ -1,10 +1,12 @@
+using FluxorDemo.Api.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//builder.Services.AddControllers(); // Remove this line
-builder.Services.AddControllersWithViews(); // Add this line
-builder.Services.AddRazorPages(); // Add this line
+builder.Services.AddSignalR(); // Add this line
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,20 +19,20 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage(); // Add this line
-    app.UseWebAssemblyDebugging(); // Add this line
+    app.UseDeveloperExceptionPage();
+    app.UseWebAssemblyDebugging();
 }
 
 app.UseHttpsRedirection();
 
-app.UseBlazorFrameworkFiles(); // Add this line
-app.UseStaticFiles(); // Add this line
+app.UseBlazorFrameworkFiles();
+app.UseStaticFiles(); 
 
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.MapRazorPages(); // Add this line
 app.MapFallbackToFile("index.html"); // Add this line
+app.MapHub<NotificationHub>("/notificationHub"); // Add this line
 
 app.Run();
